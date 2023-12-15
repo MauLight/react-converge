@@ -70,7 +70,7 @@ export const Signup = ({ setErrorType, setErrorMessage }) => {
   return (
     <div className='flex w-full h-screen'>
 
-      <div className="flex flex-col w-full lg:w-3/4 items-center justify-center pl-[15%] pr-[30%]">
+      <div className="flex flex-col w-full lg:w-3/4 items-center justify-start max-lg:mt-32 lg:justify-center max-lg:px-10 lg:pl-[10%] lg:pr-[20%] min-[1400px]:pl-[15%] min-[1400px]:pr-[30%]">
 
 
         <Title />
@@ -89,7 +89,7 @@ export const Signup = ({ setErrorType, setErrorMessage }) => {
         />
 
       </div>
-      <div className="w-0 lg:w-1/4 flex justify-center items-center bg-[#1F311D]">
+      <div className="hidden w-0 lg:w-1/4 lg:flex justify-center items-center bg-[#1F311D]">
         <Card2 />
         <Card1 />
         <Circle />

@@ -4,10 +4,10 @@ import axios from 'axios'
 
 const SignButtons = ({ googleLogin }) => {
   return (
-    <div className="flex flex-col gap-y-5 w-full">
+    <div className="flex flex-col gap-y-3 w-full">
       <button
         onClick={googleLogin}
-        className='flex gap-x-5 justify-center items-center h-[6.5vh] font-bold text-[#000000] p-2 bg-white border border-[#87FF4F] w-full uppercase'
+        className='flex gap-x-5 justify-center items-center h-[6.5vh] font-bold text-[#000000] p-2 bg-white border border-[#87FF4F] w-full uppercase hover:text-white hover:bg-[#4285F4] hover:border-[#4285F4] active:bg-white active:text-black transition-color duration-200'
       >
         <i className="fa-brands fa-google"></i>
                 Sign up with google
@@ -58,8 +58,8 @@ export const Form = ({
 
   return (
     <>
-      <form className='flex flex-col gap-y-8 w-full mb-5 mt-20'>
-        <div className="flex flex-col gap-y-10">
+      <form className='flex flex-col gap-y-5 w-full mb-5 mt-10'>
+        <div className="flex flex-col gap-y-5">
           <div className="flex flex-col">
             <label htmlFor='username' className='text-sm uppercase text-[#87FF4F] font-bold'>Email or username</label>
             <input
@@ -67,7 +67,7 @@ export const Form = ({
               onChange={({ target }) => setUsername(target.value)}
               type='email'
               placeholder='futurelabs@gmail.com'
-              className='h-12 text-[#000000] p-2 bg-transparent w-full focus:ring-0 focus:outline-none border-b-2 border-[#000000]'
+              className='h-10 text-[#000000] p-2 bg-transparent w-full focus:ring-0 focus:outline-none border-b-2 border-[#000000]'
 
             />
           </div>
@@ -76,24 +76,28 @@ export const Form = ({
             onChange={({ target }) => setName(target.value)}
             type='text'
             placeholder='Name'
-            className='h-12 text-[#000000] p-2 bg-transparent w-full focus:ring-0 focus:outline-none border-b-2 border-[#000000]'
+            className='h-10 text-[#000000] p-2 bg-transparent w-full focus:ring-0 focus:outline-none border-b-2 border-[#000000]'
           />
           <input
             value={password}
             onChange={({ target }) => setPassword(target.value)}
             type='password'
             placeholder='Password'
-            className='h-12 text-[#000000] p-2 bg-transparent w-full focus:ring-0 focus:outline-none border-b-2 border-[#000000]'
+            className='h-10 text-[#000000] p-2 bg-transparent w-full focus:ring-0 focus:outline-none border-b-2 border-[#000000]'
           />
         </div>
         <button
           onClick={handleSignUp}
-          className='h-[6.5vh] font-bold text-white p-2 mt-5 bg-[#87FF4F] w-full uppercase'>
+          className='h-[6.5vh] font-bold text-white p-2 mt-5 bg-[#87FF4F] hover:text-black hover:bg-white hover:border border-[#87FF4F] active:bg-[#87FF4F] active:text-white transition-color duration-200 w-full uppercase'>
                     Sign up
         </button>
 
       </form>
       <SignButtons googleLogin={googleLogin} />
+      <p className='text-start w-full text-sm text-[#000000] pt-5'>
+        {'Already have an account? '}
+        <a className='text-sm uppercase text-[#87FF4F] font-bold' href='/'>login</a>
+      </p>
     </>
   )
 }
