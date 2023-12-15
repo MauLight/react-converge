@@ -1,7 +1,8 @@
 /* eslint-disable no-undef */
-import React from 'react'
+import React, { useState } from 'react'
 import PromisePolyfill from 'promise-polyfill'
 import { Signup } from './views/Signup'
+import Notification from './components/Notification'
 
 if (!window.Promise) {
   window.Promise = PromisePolyfill
@@ -9,9 +10,15 @@ if (!window.Promise) {
 
 const App = () => {
 
+  const [errorType, setErrorType] = useState('')
+  const [errorMessage, setErrorMessage] = useState(null)
+
   return (
     <div className="w-screen h-screen">
-      <Signup />
+      <div className="absolute w-screen top-0">
+        <Notification type={errorType} message={errorMessage} />
+      </div>
+      <Signup setErrorType={setErrorType} setErrorMessage={setErrorMessage} />
     </div>
   )
 }

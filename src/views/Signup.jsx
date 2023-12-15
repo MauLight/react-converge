@@ -1,8 +1,67 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Form } from '../components/signup/Form'
 import { Title } from '../components/signup/Title'
 
-export const Signup = () => {
+export const Signup = ({ setErrorType, setErrorMessage }) => {
+
+  //* Form state
+  const [username, setUsername] = useState('')
+  const [name, setName] = useState('')
+  const [password, setPassword] = useState('')
+
+  const emailTest = (email) => {
+    console.log('this is the password', email)
+    return /^[\w-\\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)
+  }
+
+  const passwordTest = (p) => {
+    console.log('this is the password', p)
+    return /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-.]).{8,}$/.test(p)
+  }
+
+  //* Submit handler
+  const handleSignUp = (e) => {
+
+    e.preventDefault()
+
+    if (username === '' || name === '' || password === '') {
+      setErrorType('error')
+      setErrorMessage('Please fill all information before submitting.')
+      setTimeout(() => setErrorMessage(null), 5000)
+      return
+    }
+
+    if (!passwordTest(password)) {
+      setErrorType('error')
+      setErrorMessage('Password must have minimum eight characters, one letter, one number and one special character.')
+      setTimeout(() => setErrorMessage(null), 5000)
+      return
+    }
+
+    if (!emailTest(username)) {
+      setErrorType('error')
+      setErrorMessage('Please input email address in the correct format.')
+      setTimeout(() => setErrorMessage(null), 5000)
+      return
+    }
+
+    setUsername('')
+    setName('')
+    setPassword('')
+    setErrorType('add')
+    setErrorMessage(`Welcome aboard! ${name}`)
+    setTimeout(() => setErrorMessage(null), 5000)
+  }
+  const handleGoogleSignUp = (user) => {
+
+    setUsername('')
+    setName('')
+    setPassword('')
+    setErrorType('add')
+    setErrorMessage(`Welcome aboard ${user.name}!`)
+    setTimeout(() => setErrorMessage(null), 5000)
+  }
+
   return (
     <div className='flex w-full h-screen'>
 
@@ -11,7 +70,18 @@ export const Signup = () => {
 
         <Title />
 
-        <Form />
+        <Form
+          username={username}
+          name={name}
+          password={password}
+          setErrorType={setErrorType}
+          setErrorMessage={setErrorMessage}
+          setUsername={setUsername}
+          setName={setName}
+          setPassword={setPassword}
+          handleSignUp={handleSignUp}
+          handleGoogleSignUp={handleGoogleSignUp}
+        />
 
       </div>
       <div className="w-0 lg:w-1/4 bg-[#1F311D]">
@@ -19,24 +89,3 @@ export const Signup = () => {
     </div>
   )
 }
-
-{/* <form className='flex flex-col gap-y-8'>
-  <div className="flex flex-col gap-y-10">
-    <label htmlFor='username' className='text-sm uppercase text-[#87FF4F] font-bold'>Email or username</label>
-    <input type='email' placeholder='futurelabs@gmail.com' className='h-12 text-[#000000] p-2 bg-transparent w-full focus:ring-0 focus:outline-none border-b-2 border-[#000000]' />
-    <input type='text' placeholder='Name' className='h-12 text-[#000000] p-2 bg-transparent w-full focus:ring-0 focus:outline-none border-b-2 border-[#000000]' />
-    <input type='password' placeholder='Password' className='h-12 text-[#000000] p-2 bg-transparent w-full focus:ring-0 focus:outline-none border-b-2 border-[#000000]' />
-  </div>
-
-  <div className="flex flex-col gap-y-5">
-    <button className='h-12 text-white p-2 bg-[#87FF4F] w-full uppercase'>Sign up</button>
-    <button className='h-12 text-[#000000] p-2 bg-white border border-[#87FF4F] w-full uppercase'>Sign up</button>
-    <button className='h-12 text-white p-2 bg-[#1F311D] w-full uppercase'>Sign up with apple</button>
-  </div>
-
-</form> */}
-
-{/* <div className="flex flex-col">
-<h1 className='text-5xl text-[#000000]'>Create an Account</h1>
-<p className='text-sm text-[#000000]'>Start with our 30 day free trial.</p>
-</div> */}
