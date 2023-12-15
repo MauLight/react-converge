@@ -1,10 +1,7 @@
-![App logo](./build/icon.svg)
-
-***Welcome to Mau-React-Bundle***
-
-This bundle comes with Axios, TailwindCss and Eslint incorporated.
+***Welcome to Mau-React-Converge***
 
 Instructions:
 
-1. Run npm run server (default port 3001).
+0. Make sure you are in REACT-CONVERGE folder.
+1. Run npm install.
 2. Run npm start (default port 3000).
