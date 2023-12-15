@@ -1,6 +1,11 @@
 import React, { useState } from 'react'
+
+//*Components
 import { Form } from '../components/signup/Form'
 import { Title } from '../components/signup/Title'
+import { Circle } from '../components/signup/Circle'
+import { Card1 } from '../components/signup/Card1'
+import { Card2 } from '../components/signup/Card2'
 
 export const Signup = ({ setErrorType, setErrorMessage }) => {
 
@@ -84,7 +89,10 @@ export const Signup = ({ setErrorType, setErrorMessage }) => {
         />
 
       </div>
-      <div className="w-0 lg:w-1/4 bg-[#1F311D]">
+      <div className="w-0 lg:w-1/4 flex justify-center items-center bg-[#1F311D]">
+        <Card2 />
+        <Card1 />
+        <Circle />
       </div>
     </div>
   )

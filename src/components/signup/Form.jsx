@@ -58,17 +58,19 @@ export const Form = ({
 
   return (
     <>
-      <form className='flex flex-col gap-y-8 w-full mb-5'>
+      <form className='flex flex-col gap-y-8 w-full mb-5 mt-20'>
         <div className="flex flex-col gap-y-10">
-          <label htmlFor='username' className='text-sm uppercase text-[#87FF4F] font-bold'>Email or username</label>
-          <input
-            value={username}
-            onChange={({ target }) => setUsername(target.value)}
-            type='email'
-            placeholder='futurelabs@gmail.com'
-            className='h-12 text-[#000000] p-2 bg-transparent w-full focus:ring-0 focus:outline-none border-b-2 border-[#000000]'
+          <div className="flex flex-col">
+            <label htmlFor='username' className='text-sm uppercase text-[#87FF4F] font-bold'>Email or username</label>
+            <input
+              value={username}
+              onChange={({ target }) => setUsername(target.value)}
+              type='email'
+              placeholder='futurelabs@gmail.com'
+              className='h-12 text-[#000000] p-2 bg-transparent w-full focus:ring-0 focus:outline-none border-b-2 border-[#000000]'
 
-          />
+            />
+          </div>
           <input
             value={name}
             onChange={({ target }) => setName(target.value)}
