@@ -67,7 +67,7 @@ export const Form = ({
               onChange={({ target }) => setUsername(target.value)}
               type='email'
               placeholder='futurelabs@gmail.com'
-              className='h-10 text-[#000000] p-2 bg-transparent w-full focus:ring-0 focus:outline-none border-b-2 border-[#000000]'
+              className='h-20 lg:h-10 text-[#000000] p-2 bg-transparent w-full focus:ring-0 focus:outline-none border-b-2 border-[#000000]'
 
             />
           </div>
@@ -76,19 +76,19 @@ export const Form = ({
             onChange={({ target }) => setName(target.value)}
             type='text'
             placeholder='Name'
-            className='h-10 text-[#000000] p-2 bg-transparent w-full focus:ring-0 focus:outline-none border-b-2 border-[#000000]'
+            className='h-20 lg:h-10 text-[#000000] p-2 bg-transparent w-full focus:ring-0 focus:outline-none border-b-2 border-[#000000]'
           />
           <input
             value={password}
             onChange={({ target }) => setPassword(target.value)}
             type='password'
             placeholder='Password'
-            className='h-10 text-[#000000] p-2 bg-transparent w-full focus:ring-0 focus:outline-none border-b-2 border-[#000000]'
+            className='h-20 lg:h-10 text-[#000000] p-2 bg-transparent w-full focus:ring-0 focus:outline-none border-b-2 border-[#000000]'
           />
         </div>
         <button
           onClick={handleSignUp}
-          className='h-[6.5vh] font-bold text-white p-2 mt-5 bg-[#87FF4F] hover:text-black hover:bg-white hover:border border-[#87FF4F] active:bg-[#87FF4F] active:text-white transition-color duration-200 w-full uppercase'>
+          className='h-[6.5vh] font-bold text-white p-2 mt-20 lg:mt-5 bg-[#87FF4F] hover:text-black hover:bg-white hover:border border-[#87FF4F] active:bg-[#87FF4F] active:text-white transition-color duration-200 w-full uppercase'>
                     Sign up
         </button>
 
